@@ -1,0 +1,79 @@
+.search{
+    &__input{
+        display: flex;
+        border: 1px solid rgb(224, 223, 223);
+        align-items: center;
+        height:25px;
+        padding:12px 20px;
+        border-radius:99px;
+        width:70vw;
+        margin:0 auto;
+        margin-top: 30px;
+        max-width:560px;
+        box-shadow: 1px 1px 10px 2px rgba(58,57,57,0.15);
+        & > input{
+            flex-grow: 1;
+            border:none;
+            padding:10px 20px;
+            font-size: medium;
+            &:focus{
+                outline-width:0;
+            }
+        }
+        .search__icon{
+            color:grey;
+        }
+    }.search__input{
+        display: flex;
+        border: 1px solid rgb(224, 223, 223);
+        align-items: center;
+        height:25px;
+        padding:12px 20px;
+        border-radius:99px;
+        width:70vw;
+        margin:0 auto;
+        margin-top: 35px;
+        max-width:560px;
+        box-shadow: none;
+        &:hover{
+            box-shadow: 1px 2px 5px 2px rgba(58,57,57,0.15);
+        }
+        & > input{
+            flex-grow: 1;
+            border:none;
+            padding:10px 20px;
+            font-size: medium;
+            &:focus{
+                outline-width:0;
+            }
+        }
+        .search__icon{
+            color:grey;
+        }
+    }
+    &__buttons{
+        display: flex;
+        margin-top: 30px;
+        justify-content: center;
+        button{
+            margin: 5px;
+            padding: 7px 15px;
+            background-color: #f0f0f0;
+            border:1px solid rgb(223, 223, 223);
+            color:grey;
+            text-transform: inherit;
+            cursor: pointer;
+            min-width:150px;
+            &:hover{
+               box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
+               background-color: #eeeeee;
+               background-image: -webkit-linear-gradient(top, #f8f8f8, #f1f1f1);
+               color: #222;
+               border: 1px solid #c6c6c6;
+            }
+        }
+        .button_hidden{
+            display: none !important;
+        }
+    }
+}

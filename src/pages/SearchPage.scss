@@ -1,0 +1,108 @@
+.search-page{
+    &__header{
+        display: flex;
+        z-index:100;
+        border-bottom: 1px solid lightgray;
+        width:100%;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 30px 20px 0;
+        position: fixed;
+        background:white;
+    }
+    &__logo{
+        object-fit: contain;
+        height:40px;
+        margin-right: 50px;
+        padding-left: 20px;
+        margin-top: 25px;
+    }
+    &__headerBody {
+        display: flex;
+        flex-direction: column;
+        min-width:55vw;
+    }
+    &__headerBody .search__input{
+        width:unset;
+        max-width:unset;
+        margin-top: 20px;
+        flex-grow: 0;
+    }
+    &__container{
+        display: flex;
+        justify-content: start;
+    }
+    &__headerRight{
+        display: flex;
+        margin-right: 20px;
+        align-items: center;
+        margin-top: -30px;
+        &>svg{
+            margin-right: 10px;
+        }
+    }
+    &__options{
+        display: flex;
+        align-items: center; 
+        justify-content: space-between;
+        color:grey;
+        padding-left: 20px;
+        & a{
+            text-decoration: none;
+            color:inherit;
+        }
+    }
+    &__option{
+        display: flex;
+        margin-right: 20px;
+        font-size: 14px;
+        a{
+            margin-left: 5px;
+        }
+        svg{
+            font-size: 18px;
+        }
+    }
+    &__optionLeft,
+    &__optionRight{
+        display: flex;
+    }
+    &__results{
+       padding-top: 180px;
+       max-width:670px;
+       margin-bottom: 100px;
+       margin-left: 200px;
+    }
+    &__result{
+        margin: 20px 0;
+        & >a{
+            font-size: 14px;
+            line-height: 1.58;
+            color:rgba(0,0,0,0.85);
+            text-decoration: none;
+            &:visited{
+                color:  #609;
+            }
+            span{
+                font-size: 10px;
+                color:grey;
+            }
+        }
+        & h2{
+            font-weight: normal;
+            color:rgb(0, 0, 173);
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+    &__count{
+        color:grey;
+        font-size: 14px;
+    }
+    &__snippet{
+        color: rgb(66, 66, 66);
+        margin-top: 10px;
+        font-size: 14px;
+    }
+}
