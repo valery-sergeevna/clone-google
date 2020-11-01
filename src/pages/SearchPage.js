@@ -1,23 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './SearchPage.scss';
 import { useStateValue } from "../StateProvider";
 import useGoogleSearch from '../useGoogleSearch';
-import Response from '../response';
 import { Link } from "react-router-dom";
 import Search from './Search';
 import AppsIcon from '@material-ui/icons/Apps';
-import { Avatar } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import DescriptionIcon from '@material-ui/icons/Description';
 import ImageIcon from '@material-ui/icons/Image';
 import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import RoomIcon from '@material-ui/icons/Room';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import { signInWithGoogle } from '../firebase';
+import Modal from './Modal';
 
 const SearchPage = () => {
 
     const [{ term, user }, dispatch] = useStateValue();
     const { data } = useGoogleSearch(term);
+    const [modal, setOpenModal] = useState(false);
+
+    const signWithGoogle = () => {
+        signInWithGoogle();
+        localStorage.setItem("user", JSON.stringify(user));
+        console.log(user);
+    };
 
     console.log(data);
     return (
@@ -62,7 +69,7 @@ const SearchPage = () => {
                                     <Link to='/settings'>Settings</Link>
                                 </div>
                                 <div className="search-page__option">
-                                    <Link to='/tools'>Tool</Link>
+                                    <Link to='/tools'>Tools</Link>
                                 </div>
                             </div>
                         </div>
@@ -74,7 +81,9 @@ const SearchPage = () => {
                         className="header__photo"
                         style={{ display: `${!user ? "none" : ""}` }}
                         src={!user ? "" : user.photoURL}
+                        onClick={() => setOpenModal(!modal)}
                     />
+                    <button onClick={signWithGoogle} className="header__register" style={{ display: `${user ? "none" : ""}` }}>Sign in</button>
                 </div>
             </header>
             {term && (
@@ -91,6 +100,7 @@ const SearchPage = () => {
                         </div>)
                     })}
                 </div>)}
+            {modal && user && (<Modal />)}
         </div >
     );
 };

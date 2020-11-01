@@ -29,7 +29,7 @@ const Home = () => {
                     <Link to='/gmail'>Gmail</Link>
                     <Link to='/images'>Images</Link>
                     <AppsIcon />
-                    <button onClick={signWithGoogle} className="header__regiter" style={{ display: `${user ? "none" : ""}` }}>Sign in</button>
+                    <button onClick={signWithGoogle} className="header__register" style={{ display: `${user ? "none" : ""}` }}>Sign in</button>
                     <img
                         className="header__photo"
                         style={{ display: `${!user ? "none" : ""}` }}
@@ -57,7 +57,7 @@ const Home = () => {
                     <Link to='/setting'>Settings</Link>
                 </div>
             </footer>
-            {modal && (<Modal />)}
+            {modal && user && (<Modal />)}
         </div>
     );
 };

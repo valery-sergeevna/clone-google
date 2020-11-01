@@ -17,7 +17,7 @@ const Search = ({ hideButtons = true, query }) => {
     const history = useHistory();
     const search = (e) => {
         e.preventDefault();
-        if (input.length !== 0) {
+        if (input) {
             dispatch({
                 type: actionTypes.SET_SEARCH_TERM,
                 term: input

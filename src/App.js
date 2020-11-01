@@ -15,6 +15,7 @@ const App = () => {
 
   const [{ user }, dispatch] = useStateValue();
 
+
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
       // console.log("THE USER IS >>> ", authUser);
