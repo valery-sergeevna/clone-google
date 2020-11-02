@@ -5,7 +5,7 @@ import GroupAddOutlinedIcon from '@material-ui/icons/GroupAddOutlined';
 import { auth } from "../firebase";
 import { actionTypes } from '../reducer';
 
-const Modal = () => {
+const Modal = ({ toggle }) => {
 
     const [{ user }, dispatch] = useStateValue();
 

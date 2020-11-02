@@ -6,6 +6,7 @@ import Search from './Search';
 import { signInWithGoogle } from '../firebase';
 import { useStateValue } from "../StateProvider";
 import Modal from './Modal';
+import Menu from './Menu';
 
 const Home = () => {
 
@@ -16,10 +17,22 @@ const Home = () => {
     };
 
     const [{ user }, dispatch] = useStateValue();
-    const [modal, setOpenModal] = useState(false);
+    const [modal, setModal] = useState(false);
+    const [menuOptions, setMenuOptions] = useState(false);
+
+
+    const toggleMenu = () => {
+        setMenuOptions(!menuOptions);
+        setModal(false);
+    };
+
+    const toggleModal = () => {
+        setModal(!modal);
+        setMenuOptions(false);
+    };
 
     return (
-        <div className='home'>
+        <div className='home' >
             <header className="home__header header">
                 <div className="header__left">
                     <Link to='/about'>About</Link>
@@ -28,13 +41,13 @@ const Home = () => {
                 <div className="header__right">
                     <Link to='/gmail'>Gmail</Link>
                     <Link to='/images'>Images</Link>
-                    <AppsIcon />
+                    <AppsIcon onClick={toggleMenu} />
                     <button onClick={signWithGoogle} className="header__register" style={{ display: `${user ? "none" : ""}` }}>Sign in</button>
                     <img
                         className="header__photo"
                         style={{ display: `${!user ? "none" : ""}` }}
                         src={!user ? "" : user.photoURL}
-                        onClick={() => setOpenModal(!modal)}
+                        onClick={toggleModal}
                     />
                 </div>
             </header>
@@ -58,6 +71,7 @@ const Home = () => {
                 </div>
             </footer>
             {modal && user && (<Modal />)}
+            {menuOptions && (<Menu />)}
         </div>
     );
 };

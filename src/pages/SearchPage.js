@@ -13,17 +13,31 @@ import RoomIcon from '@material-ui/icons/Room';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { signInWithGoogle } from '../firebase';
 import Modal from './Modal';
+import Menu from './Menu';
 
 const SearchPage = () => {
 
     const [{ term, user }, dispatch] = useStateValue();
     const { data } = useGoogleSearch(term);
-    const [modal, setOpenModal] = useState(false);
 
     const signWithGoogle = () => {
         signInWithGoogle();
         localStorage.setItem("user", JSON.stringify(user));
         console.log(user);
+    };
+
+    const [modal, setModal] = useState(false);
+    const [menuOptions, setMenuOptions] = useState(false);
+
+
+    const toggleMenu = () => {
+        setMenuOptions(!menuOptions);
+        setModal(false);
+    };
+
+    const toggleModal = () => {
+        setModal(!modal);
+        setMenuOptions(false);
     };
 
     console.log(data);
@@ -76,12 +90,12 @@ const SearchPage = () => {
                     </div>
                 </div>
                 <div className="search-page__headerRight">
-                    <AppsIcon />
+                    <AppsIcon onClick={toggleMenu} />
                     <img
                         className="header__photo"
                         style={{ display: `${!user ? "none" : ""}` }}
                         src={!user ? "" : user.photoURL}
-                        onClick={() => setOpenModal(!modal)}
+                        onClick={toggleModal}
                     />
                     <button onClick={signWithGoogle} className="header__register" style={{ display: `${user ? "none" : ""}` }}>Sign in</button>
                 </div>
@@ -101,6 +115,7 @@ const SearchPage = () => {
                     })}
                 </div>)}
             {modal && user && (<Modal />)}
+            {menuOptions && (<Menu />)}
         </div >
     );
 };
