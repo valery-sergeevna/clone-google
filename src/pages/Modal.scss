@@ -102,3 +102,13 @@
         }
     }
 }
+
+@media screen and (max-width: 400px){
+    .user{
+        width: 290px;
+        &__item{
+            padding: 5px;  
+        }
+    }
+    
+}

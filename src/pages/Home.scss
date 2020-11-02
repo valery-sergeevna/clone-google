@@ -71,7 +71,7 @@
                 text-decoration: underline;
             }
         }
-    }
+}
 }
 
 
@@ -96,4 +96,31 @@
         outline-width:0px;
     }
 
+}
+
+@media screen and (max-width: 768px) {
+
+    .footer{
+        flex-direction: column;
+        text-align: center;
+        &__item:first-child{
+            margin-bottom: 20px;
+        }
+    }
+    .home__body{
+        margin-top: 50px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+
+    .header .header__left{
+        display: none;
+    }
+    .header__right{
+        width:100%;
+    }
+    .home__body img{
+        height:90px;
+    }
 }

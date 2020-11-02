@@ -77,3 +77,20 @@
         }
     }
 }
+
+@media screen and (max-width: 550px) {
+
+    .search__buttons{
+        & button{
+            font-size: 13px;
+            min-width: 120px;
+        }
+    }
+    .search .search__input{
+        width:80vw;
+    }
+    .search .search__input > input{
+        width:70%;
+        padding: 5px 8px;
+    }
+}
