@@ -71,7 +71,7 @@ const Home = () => {
                 </div>
             </footer>
             {modal && user && (<Modal />)}
-            {menuOptions && (<Menu />)}
+            {menuOptions && user && (<Menu />)}
         </div>
     );
 };

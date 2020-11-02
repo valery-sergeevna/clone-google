@@ -115,7 +115,7 @@ const SearchPage = () => {
                     })}
                 </div>)}
             {modal && user && (<Modal />)}
-            {menuOptions && (<Menu />)}
+            {menuOptions && user && (<Menu />)}
         </div >
     );
 };
